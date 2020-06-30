@@ -8,20 +8,12 @@
     "url": "git://github.com/TITAN9389/paws-n-claws"
   },
   "dependencies": {
-    "@firebase/app": "^0.6.7",
-    "@firebase/auth": "^0.14.7",
-    "@firebase/firestore": "^1.15.5",
-    "@firebase/storage": "^0.3.37",
     "@material-ui/core": "^4.10.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
+    "axios": "^0.19.2",
+    "firebase": "^7.15.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2"
   },
@@ -45,5 +37,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.5",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@firebase/firestore-types": "^1.11.0"
   }
 }
