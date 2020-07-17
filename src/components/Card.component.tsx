@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {AnimalInterface} from 'constants/animals';
 
 const useStyles = makeStyles({
   root: {
@@ -14,11 +15,15 @@ const useStyles = makeStyles({
     margin: 12,
   },
   media: {
-    height: 140,
+    height: 200,
   },
 });
 
-const CardComponent = () => {
+interface OwnPropsInterface {
+  data: AnimalInterface;
+}
+
+const CardComponent: React.FC<OwnPropsInterface> = ({data}) => {
   const classes = useStyles();
 
   return (
@@ -31,11 +36,11 @@ const CardComponent = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Dog
+            {data.id}
+            {data.name && `- ${data.name}`}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {data.breed}
           </Typography>
         </CardContent>
       </CardActionArea>

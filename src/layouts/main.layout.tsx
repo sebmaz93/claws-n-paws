@@ -98,14 +98,18 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     title: {
-      fontFamily: 'Poppins',
+      fontFamily: 'Airfool',
       flexGrow: 1,
+      textShadow: `#FC0 1px 0 10px`,
+      paddingLeft: 4,
     },
     logo: {
-      display: 'inline-block',
-      height: 'auto',
+      height: '45px',
       width: '45px',
       marginRight: 10,
+      backgroundImage: `url(${clawsNpawsLogo})`,
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
     },
     listLogo: {
       flexGrow: 1,
@@ -116,23 +120,20 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     listLogoItem: {width: 'auto'},
     listLogoItemClosed: {width: '100%'},
-    logoOpen: {
-      display: 'inline-block',
-      height: 'auto',
-      width: '126px',
+    logoLg: {
+      backgroundImage: `url(${clawsNpawsLogo})`,
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       }),
+      height: '126px',
+      width: '126px',
     },
     logoClosed: {
-      display: 'inline-block',
-      height: 'auto',
+      height: '30px',
       width: '30px',
-      transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
     },
     textHidden: {
       display: 'none',
@@ -175,8 +176,8 @@ const MiniDrawer: React.FC = ({children}) => {
           >
             <MenuIcon />
           </IconButton>
-          <img src={clawsNpawsLogo} alt="logo" className={classes.logo} />
-          <Typography variant="h6" noWrap className={classes.title}>
+          <div className={classes.logo} />
+          <Typography variant="h4" noWrap className={classes.title}>
             Claws'n'Paws
           </Typography>
           <Button color="inherit">Login</Button>
@@ -262,10 +263,8 @@ const MiniDrawer: React.FC = ({children}) => {
             })}
           >
             <ListItemIcon>
-              <img
-                src={clawsNpawsLogo}
-                alt="logo"
-                className={clsx(classes.logoOpen, {
+              <div
+                className={clsx(classes.logoLg, {
                   [classes.logoClosed]: !open,
                 })}
               />
@@ -290,3 +289,5 @@ const MiniDrawer: React.FC = ({children}) => {
 };
 
 export default MiniDrawer;
+
+// google-site-verification=qhg0Tzuzi0k8oEAG0dMGCq0LImnypkmAj4bsPKGWNTw
