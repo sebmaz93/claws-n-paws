@@ -18,11 +18,17 @@ import MailIcon from '@material-ui/icons/Mail';
 import {HEADER_DATA, HEADER_DATA_2} from 'static/header.data';
 import {DRAWER_WIDTH} from 'constants/sizes';
 import {Container} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import clawsNpawsLogo from 'assets/claws_paws_yellow.png';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
+      overflowY: 'hidden',
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
@@ -40,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
     },
     menuButton: {
-      marginRight: 36,
+      marginRight: 18,
     },
     hide: {
       display: 'none',
@@ -87,17 +93,72 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     listItemText: {
       textTransform: 'capitalize',
+      '& span': {
+        fontFamily: 'Roboto !important',
+      },
+    },
+    title: {
+      fontFamily: 'Poppins',
+      flexGrow: 1,
+    },
+    logo: {
+      display: 'inline-block',
+      height: 'auto',
+      width: '45px',
+      marginRight: 10,
+    },
+    listLogo: {
+      flexGrow: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+    },
+    listLogoItem: {width: 'auto'},
+    listLogoItemClosed: {width: '100%'},
+    logoOpen: {
+      display: 'inline-block',
+      height: 'auto',
+      width: '126px',
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+    logoClosed: {
+      display: 'inline-block',
+      height: 'auto',
+      width: '30px',
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+    textHidden: {
+      display: 'none',
     },
   })
 );
 
 const MiniDrawer: React.FC = ({children}) => {
   const classes = useStyles();
-  const lg = window.innerWidth > 600;
+  const lg = window.innerWidth > 100;
   const [open, setOpen] = React.useState(lg);
+  const [auth] = React.useState(true);
+  // prettier-ignore
+  const [anchorEl, setAnchorEl] = React.useState<null|HTMLElement>(null);
+  const menuOpen = Boolean(anchorEl);
 
   const handleDrawerToggle = () => {
     setOpen((val) => !val);
+  };
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -114,9 +175,42 @@ const MiniDrawer: React.FC = ({children}) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <img src={clawsNpawsLogo} alt="logo" className={classes.logo} />
+          <Typography variant="h6" noWrap className={classes.title}>
             Claws'n'Paws
           </Typography>
+          <Button color="inherit">Login</Button>
+          {auth && (
+            <div>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={menuOpen}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+              </Menu>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -161,10 +255,33 @@ const MiniDrawer: React.FC = ({children}) => {
             </ListItem>
           ))}
         </List>
+        <List className={classes.listLogo}>
+          <ListItem
+            className={clsx(classes.listLogoItem, {
+              [classes.listLogoItemClosed]: !open,
+            })}
+          >
+            <ListItemIcon>
+              <img
+                src={clawsNpawsLogo}
+                alt="logo"
+                className={clsx(classes.logoOpen, {
+                  [classes.logoClosed]: !open,
+                })}
+              />
+            </ListItemIcon>
+          </ListItem>
+          <Typography variant="caption">
+            <span className={open ? '' : classes.textHidden}>
+              All Right Received{' '}
+            </span>
+            SebMaz
+          </Typography>
+        </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" disableGutters>
           <>{children}</>
         </Container>
       </main>

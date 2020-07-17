@@ -5,7 +5,7 @@ import CardComponent from 'components/Card.component';
 const DogsPage = () => {
   return (
     <Grid container spacing={1}>
-      {Array(6)
+      {Array(12)
         .fill(0)
         .map(() => (
           <Grid item sm={12} md={6} lg={4} xl={3}>

@@ -17,6 +17,17 @@ export default function Theme() {
             main: '#019eaa',
           },
         },
+        typography: {
+          body1: {
+            fontFamily: 'Poppins',
+          },
+          body2: {
+            fontFamily: 'Poppins',
+          },
+          button: {
+            fontWeight: 400,
+          },
+        },
       }),
     [prefersDarkMode]
   );
