@@ -7,7 +7,7 @@ const DogsPage = () => {
   return (
     <Grid container spacing={1}>
       {DOGS_DATA.map((dog) => (
-        <Grid item sm={12} md={6} lg={4} xl={3}>
+        <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
           <CardComponent data={dog} />
         </Grid>
       ))}

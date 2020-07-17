@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
     },
     menuButton: {
-      marginRight: 18,
+      marginRight: 8,
     },
     hide: {
       display: 'none',
@@ -180,7 +180,6 @@ const MiniDrawer: React.FC = ({children}) => {
           <Typography variant="h4" noWrap className={classes.title}>
             Claws'n'Paws
           </Typography>
-          <Button color="inherit">Login</Button>
           {auth && (
             <div>
               <IconButton

@@ -37,6 +37,36 @@ const DOGS_DATA: AnimalInterface[] = [
     size: ANIMAL_SIZE.LARGE,
     age: '3',
   },
+  {
+    id: '4',
+    name: 'zeus',
+    breed: 'labrador',
+    pureBreed: ANIMAL_BREED_TYPE.PURE,
+    sex: ANIMAL_SEX.MALE,
+    type: ANIMAL_TYPE.DOG,
+    size: ANIMAL_SIZE.LARGE,
+    age: '3',
+  },
+  {
+    id: '5',
+    name: 'zeus',
+    breed: 'labrador',
+    pureBreed: ANIMAL_BREED_TYPE.PURE,
+    sex: ANIMAL_SEX.MALE,
+    type: ANIMAL_TYPE.DOG,
+    size: ANIMAL_SIZE.LARGE,
+    age: '3',
+  },
+  {
+    id: '6',
+    name: 'zeus',
+    breed: 'labrador',
+    pureBreed: ANIMAL_BREED_TYPE.PURE,
+    sex: ANIMAL_SEX.MALE,
+    type: ANIMAL_TYPE.DOG,
+    size: ANIMAL_SIZE.LARGE,
+    age: '3',
+  },
 ];
 
 export default DOGS_DATA;
