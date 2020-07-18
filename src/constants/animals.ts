@@ -10,7 +10,7 @@ export enum ANIMAL_TYPE {
     OTHER = 'other'
 }
 
-export enum ANIMAL_SEX {
+export enum ANIMAL_GENDER {
     MALE = 'male',
     FEMALE = 'female'
 }
@@ -23,11 +23,14 @@ export enum ANIMAL_BREED_TYPE {
 export interface AnimalInterface {
     id: string;
     name: string;
-    breed: string;
-    pureBreed: ANIMAL_BREED_TYPE;
-    sex: ANIMAL_SEX;
+    breed: string | 'mix';
+    pureBreed?: ANIMAL_BREED_TYPE;
+    gender: ANIMAL_GENDER;
     size: ANIMAL_SIZE;
     type: ANIMAL_TYPE;
     description?: string;
     age:string;
+    contacts:string[];
+    team?: string;
+    images:string[];
 }
