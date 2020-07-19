@@ -19,12 +19,14 @@ import HomeIcon from '@material-ui/icons/HomeOutlined';
 import ContactsIcon from '@material-ui/icons/ContactsOutlined';
 import DonateIcon from '@material-ui/icons/MonetizationOnOutlined';
 import ServicesIcon from '@material-ui/icons/BallotOutlined';
+import MobileIcon from '@material-ui/icons/PhonelinkRingOutlined';
 
 interface HeaderDataInterface {
   id: number;
   name: string;
   path: string;
   icon: React.ReactNode;
+  disabled?: boolean;
 }
 
 const SIDEBAR_DATA: HeaderDataInterface[] = [
@@ -51,12 +53,14 @@ const SIDEBAR_DATA: HeaderDataInterface[] = [
     name: 'teams',
     path: '/teams',
     icon: <TeamIcon />,
+    disabled: true,
   },
   {
     id: 5,
     name: 'gallery',
     path: '/gallery',
     icon: <GalleryIcon />,
+    disabled: true,
   },
 ];
 
@@ -66,12 +70,14 @@ const SIDEBAR_DATA_2 = [
     name: 'services',
     path: '/services',
     icon: <ServicesIcon />,
+    disabled: true,
   },
   {
     id: 2,
     name: 'donate',
     path: '/donate',
     icon: <DonateIcon />,
+    disabled: true,
   },
   {
     id: 3,
@@ -164,6 +170,11 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'center',
       whiteSpace: 'normal',
     },
+    pcOnly: {
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+      },
+    },
   })
 );
 
@@ -194,6 +205,7 @@ const Sidebar: React.FC<{open: boolean}> = ({open}) => {
             key={el.id}
             component={NavLink}
             to={el.path}
+            disabled={el.disabled}
           >
             <ListItemIcon>{el.icon}</ListItemIcon>
             <ListItemText className={classes.listItemText} primary={el.name} />
@@ -203,13 +215,34 @@ const Sidebar: React.FC<{open: boolean}> = ({open}) => {
       <Divider />
       <List>
         {SIDEBAR_DATA_2.map((el) => (
-          <ListItem className={classes.listItem} button key={el.id}>
+          <ListItem
+            className={classes.listItem}
+            button
+            key={el.id}
+            component={NavLink}
+            to={el.path}
+            disabled={el.disabled}
+          >
             <ListItemIcon>
               <ListItemIcon>{el.icon}</ListItemIcon>
             </ListItemIcon>
             <ListItemText className={classes.listItemText} primary={el.name} />
           </ListItem>
         ))}
+        <ListItem
+          className={`${classes.listItem} ${classes.pcOnly}`}
+          button
+          key="qr"
+          component={NavLink}
+          to="/qr"
+        >
+          <ListItemIcon>
+            <ListItemIcon>
+              <MobileIcon />
+            </ListItemIcon>
+          </ListItemIcon>
+          <ListItemText className={classes.listItemText} primary="to mobile" />
+        </ListItem>
       </List>
       <List className={classes.listLogo}>
         <ListItem
