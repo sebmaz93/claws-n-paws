@@ -59,12 +59,12 @@ const CardComponent: React.FC<OwnPropsInterface> = ({data}) => {
         <CardContent className={classes.cardContent}>
           <Typography
             gutterBottom
-            variant="h5"
+            variant="h6"
             component="h2"
             className={classes.name}
           >
             {data.id}
-            {data.name && ` - ${data.name}`}
+            {data.name && ` / ${data.name}`}
           </Typography>
           <Chip color="primary" label={data.breed} />
           <Chip

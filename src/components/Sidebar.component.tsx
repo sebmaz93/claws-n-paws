@@ -12,6 +12,13 @@ import Drawer from '@material-ui/core/Drawer';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import {DRAWER_WIDTH} from 'constants/sizes';
 import clawsNpawsLogo from 'assets/claws_paws_yellow.png';
+import {NavLink} from 'react-router-dom';
+import GalleryIcon from '@material-ui/icons/PhotoLibraryOutlined';
+import TeamIcon from '@material-ui/icons/PeopleOutline';
+import HomeIcon from '@material-ui/icons/HomeOutlined';
+import ContactsIcon from '@material-ui/icons/ContactsOutlined';
+import DonateIcon from '@material-ui/icons/MonetizationOnOutlined';
+import ServicesIcon from '@material-ui/icons/BallotOutlined';
 
 interface HeaderDataInterface {
   id: number;
@@ -25,7 +32,7 @@ const SIDEBAR_DATA: HeaderDataInterface[] = [
     id: 1,
     name: 'home',
     path: '/',
-    icon: <DogIcon className="MuiSvgIcon-root" />,
+    icon: <HomeIcon />,
   },
   {
     id: 2,
@@ -43,13 +50,13 @@ const SIDEBAR_DATA: HeaderDataInterface[] = [
     id: 4,
     name: 'teams',
     path: '/teams',
-    icon: <DogIcon className="MuiSvgIcon-root" />,
+    icon: <TeamIcon />,
   },
   {
     id: 5,
     name: 'gallery',
     path: '/gallery',
-    icon: <DogIcon className="MuiSvgIcon-root" />,
+    icon: <GalleryIcon />,
   },
 ];
 
@@ -58,19 +65,19 @@ const SIDEBAR_DATA_2 = [
     id: 1,
     name: 'services',
     path: '/services',
-    icon: <DogIcon className="MuiSvgIcon-root" />,
+    icon: <ServicesIcon />,
   },
   {
     id: 2,
     name: 'donate',
     path: '/donate',
-    icon: <DogIcon className="MuiSvgIcon-root" />,
+    icon: <DonateIcon />,
   },
   {
     id: 3,
     name: 'contacts',
     path: '/contacts',
-    icon: <DogIcon className="MuiSvgIcon-root" />,
+    icon: <ContactsIcon />,
   },
 ];
 
@@ -108,6 +115,9 @@ const useStyles = makeStyles((theme: Theme) =>
       ...theme.mixins.toolbar,
     },
     listItem: {
+      '&.active': {
+        backgroundColor: `${theme.palette.secondary.main}55`,
+      },
       [theme.breakpoints.up('sm')]: {
         paddingLeft: 20,
       },
@@ -148,8 +158,11 @@ const useStyles = makeStyles((theme: Theme) =>
       height: '30px',
       width: '30px',
     },
-    textHidden: {
-      display: 'none',
+    copyright: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      textAlign: 'center',
+      whiteSpace: 'normal',
     },
   })
 );
@@ -174,7 +187,14 @@ const Sidebar: React.FC<{open: boolean}> = ({open}) => {
       <Divider />
       <List>
         {SIDEBAR_DATA.map((el) => (
-          <ListItem className={classes.listItem} button key={el.id}>
+          <ListItem
+            className={classes.listItem}
+            exact={el.path === '/'}
+            button
+            key={el.id}
+            component={NavLink}
+            to={el.path}
+          >
             <ListItemIcon>{el.icon}</ListItemIcon>
             <ListItemText className={classes.listItemText} primary={el.name} />
           </ListItem>
@@ -205,11 +225,8 @@ const Sidebar: React.FC<{open: boolean}> = ({open}) => {
             />
           </ListItemIcon>
         </ListItem>
-        <Typography variant="caption">
-          <span className={open ? '' : classes.textHidden}>
-            All Right Received{' '}
-          </span>
-          SebMaz
+        <Typography className={classes.copyright} variant="caption">
+          SebMaz © 2020
         </Typography>
       </List>
     </Drawer>

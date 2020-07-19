@@ -35,6 +35,7 @@ export default function Theme() {
           },
           h6: {
             fontFamily: 'Poppins',
+            fontWeight: 'bold',
           },
           button: {
             fontWeight: 400,
