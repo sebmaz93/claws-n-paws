@@ -46,6 +46,9 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       textShadow: `#FC0 1px 0 10px`,
       paddingLeft: 4,
+      [theme.breakpoints.down(330)]: {
+        fontSize: 22,
+      },
     },
     logo: {
       height: '45px',
@@ -54,6 +57,11 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundImage: `url(${clawsNpawsLogo})`,
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
+      [theme.breakpoints.down(330)]: {
+        height: '35px',
+        width: '35px',
+        marginRight: 5,
+      },
     },
   })
 );

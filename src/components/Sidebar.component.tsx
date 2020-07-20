@@ -20,6 +20,7 @@ import ContactsIcon from '@material-ui/icons/ContactsOutlined';
 import DonateIcon from '@material-ui/icons/MonetizationOnOutlined';
 import ServicesIcon from '@material-ui/icons/BallotOutlined';
 import MobileIcon from '@material-ui/icons/PhonelinkRingOutlined';
+import {VERSION} from 'constants/version';
 
 interface HeaderDataInterface {
   id: number;
@@ -171,7 +172,7 @@ const useStyles = makeStyles((theme: Theme) =>
       whiteSpace: 'normal',
     },
     pcOnly: {
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down(330)]: {
         display: 'none',
       },
     },
@@ -230,7 +231,7 @@ const Sidebar: React.FC<{open: boolean}> = ({open}) => {
           </ListItem>
         ))}
         <ListItem
-          className={`${classes.listItem} ${classes.pcOnly}`}
+          className={classes.listItem}
           button
           key="qr"
           component={NavLink}
@@ -246,7 +247,7 @@ const Sidebar: React.FC<{open: boolean}> = ({open}) => {
       </List>
       <List className={classes.listLogo}>
         <ListItem
-          className={clsx(classes.listLogoItem, {
+          className={clsx(classes.listLogoItem, classes.pcOnly, {
             [classes.listLogoItemClosed]: !open,
           })}
         >
@@ -259,7 +260,7 @@ const Sidebar: React.FC<{open: boolean}> = ({open}) => {
           </ListItemIcon>
         </ListItem>
         <Typography className={classes.copyright} variant="caption">
-          SebMaz © 2020
+          SebMaz © 2020 v{VERSION}
         </Typography>
       </List>
     </Drawer>
