@@ -15,8 +15,8 @@ function App() {
           <Switch>
             <Route exact path="/" render={() => <div>HOME</div>} />
             <Route exact path="/dogs" component={DogsPage} />
-            <Route exact path="/dogs/add" component={FormPage} />
             <Route exact path="/dogs/:dogId" render={() => <div>DOG ID</div>} />
+            <Route exact path="/add" component={FormPage} />
             <Route exact path="/qr" component={QRPage} />
           </Switch>
         </MainLayout>
