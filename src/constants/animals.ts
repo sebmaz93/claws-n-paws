@@ -30,6 +30,7 @@ export interface AnimalInterface {
     type: ANIMAL_TYPE;
     description?: string;
     age:string;
+    ageISO:number;
     contacts:string[];
     team?: string;
     images:string[];

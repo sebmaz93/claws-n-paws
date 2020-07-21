@@ -16,6 +16,7 @@ const DOGS_DATA: AnimalInterface[] = [
     type: ANIMAL_TYPE.DOG,
     size: ANIMAL_SIZE.SMALL,
     age: '3',
+    ageISO: 1546300800000,
     contacts: ['093029389', '093029326'],
     images: [
       'https://cdn.pixabay.com/photo/2019/03/26/00/53/husky-4081689_960_720.jpg',
@@ -30,6 +31,7 @@ const DOGS_DATA: AnimalInterface[] = [
     type: ANIMAL_TYPE.DOG,
     size: ANIMAL_SIZE.MEDIUM,
     age: '3',
+    ageISO: 1546300800000,
     contacts: ['093029389', '093029326'],
     images: [
       'https://cdn.pixabay.com/photo/2016/03/27/21/16/animal-1284307_960_720.jpg',
@@ -44,6 +46,7 @@ const DOGS_DATA: AnimalInterface[] = [
     type: ANIMAL_TYPE.DOG,
     size: ANIMAL_SIZE.LARGE,
     age: '3',
+    ageISO: 1546300800000,
     contacts: ['093029389', '093029326'],
     images: [
       'https://cdn.pixabay.com/photo/2019/07/30/05/53/dog-4372036__340.jpg',
@@ -58,6 +61,7 @@ const DOGS_DATA: AnimalInterface[] = [
     type: ANIMAL_TYPE.DOG,
     size: ANIMAL_SIZE.LARGE,
     age: '3',
+    ageISO: 1546300800000,
     contacts: ['093029389', '093029326'],
     images: [
       'https://cdn.pixabay.com/photo/2016/05/09/10/42/weimaraner-1381186_960_720.jpg',
@@ -72,6 +76,7 @@ const DOGS_DATA: AnimalInterface[] = [
     type: ANIMAL_TYPE.DOG,
     size: ANIMAL_SIZE.LARGE,
     age: '3',
+    ageISO: 1546300800000,
     contacts: ['093029389', '093029326'],
     images: [
       'https://cdn.pixabay.com/photo/2020/07/14/12/00/dog-5403928_960_720.jpg',
@@ -86,6 +91,7 @@ const DOGS_DATA: AnimalInterface[] = [
     type: ANIMAL_TYPE.DOG,
     size: ANIMAL_SIZE.LARGE,
     age: '3',
+    ageISO: 1546300800000,
     contacts: ['093029389', '093029326'],
     images: [
       'https://cdn.pixabay.com/photo/2018/10/09/21/29/dalmatian-3735977_960_720.jpg',

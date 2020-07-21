@@ -13,11 +13,14 @@ import {
   AnimalInterface,
 } from 'constants/animals';
 import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
 import {ReactComponent as MaleIcon} from 'assets/male.svg';
 import {ReactComponent as FemaleIcon} from 'assets/female.svg';
 import PureBreedIcon from '@material-ui/icons/TrendingFlatRounded';
 import MixBreedIcon from '@material-ui/icons/ShuffleRounded';
+import CakeIcon from '@material-ui/icons/CakeOutlined';
+import SizeIcon from '@material-ui/icons/TrendingUpOutlined';
+import PetIcon from '@material-ui/icons/PetsOutlined';
+import {formatDistanceToNowStrict} from 'date-fns';
 
 const useStyles = makeStyles({
   root: {
@@ -66,7 +69,7 @@ const CardComponent: React.FC<OwnPropsInterface> = ({data}) => {
             {data.id}
             {data.name && ` / ${data.name}`}
           </Typography>
-          <Chip color="primary" label={data.breed} />
+          <Chip icon={<PetIcon />} color="primary" label={data.breed} />
           <Chip
             color="secondary"
             className={
@@ -88,10 +91,11 @@ const CardComponent: React.FC<OwnPropsInterface> = ({data}) => {
               )
             }
           />
+          <Chip color="secondary" icon={<SizeIcon />} label={data.size} />
           <Chip
             color="secondary"
-            avatar={<Avatar>{data.size[0].toUpperCase()}</Avatar>}
-            label={data.size}
+            icon={<CakeIcon />}
+            label={formatDistanceToNowStrict(data.ageISO)}
           />
         </CardContent>
       </CardActionArea>
