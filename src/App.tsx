@@ -3,14 +3,14 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import Theme from 'styles/theme';
 import MainLayout from 'layouts/main.layout';
 import DogsPage from 'pages/dogs.page';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 import QRPage from 'pages/qr.page';
 import FormPage from 'pages/form.page';
 
 function App() {
   return (
     <ThemeProvider theme={Theme()}>
-      <BrowserRouter>
+      <Router>
         <MainLayout>
           <Switch>
             <Route exact path="/" render={() => <div>HOME</div>} />
@@ -20,7 +20,7 @@ function App() {
             <Route exact path="/qr" component={QRPage} />
           </Switch>
         </MainLayout>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
 }
