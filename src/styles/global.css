@@ -4,3 +4,22 @@
     font-weight: normal;
     font-style: normal;
 }
+.under-const-container{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.under-const {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-image: url("./../assets/under_const.jpg");
+    background-position: center;
+    background-origin: border-box;
+    background-size: contain;
+    background-repeat: repeat;
+    width: 100%;
+}
